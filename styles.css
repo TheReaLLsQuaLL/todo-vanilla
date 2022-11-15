@@ -17,3 +17,19 @@ body {
   border-radius: 8px;
   padding: 15px;
 }
+
+#addNew {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(151, 180, 143, 100);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.fa-plus {
+  background-color: #d2fac6;
+  padding: 3px;
+  border-radius: 3px;
+}
