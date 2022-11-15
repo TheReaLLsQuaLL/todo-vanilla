@@ -62,7 +62,7 @@ let addTask = () => {
             class="fas fa-edit"
           ></i>
           <i
-            onClick="deleteTask(this);createTasks()"
+            onClick="deleteTask(this);addTask()"
             class="fas fa-trash-alt"
           ></i>
         </span>
@@ -71,3 +71,24 @@ let addTask = () => {
   });
   resetForm();
 };
+
+let deleteTask = (e) => {
+  e.parentElement.parentElement.remove();
+  data.splice(e.parentElement.parentElement.id, 1);
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log(data);
+};
+
+let editTask = (e) => {
+  let selectedTask = e.parentElement.parentElement;
+  textInput.value = selectedTask.children[0].innerHTML;
+  dateInput.value = selectedTask.children[1].innerHTML;
+  textArea.value = selectedTask.children[2].innerHTML;
+  deleteTask(e);
+};
+//Local Data Storage
+(() => {
+  data = JSON.parse(localStorage.getItem("data")) || [];
+  console.log(data);
+  addTask();
+})();
